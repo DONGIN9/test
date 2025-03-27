@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>번역 검수 - 행 {{ index+1 }} / {{ total }}</title>
+  </head>
+  <body>
+    <h1>행 {{ index+1 }} / {{ total }}</h1>
+    <form method="post">
+      <table border="1" cellpadding="10">
+        <tr>
+          <th>원문</th>
+          <th>번역</th>
+        </tr>
+        {% set max_sentences = row.origin_sentences|length if row.origin_sentences|length >= row.translation_sentences|length else row.translation_sentences|length %}
+        {% for i in range(max_sentences) %}
+        <tr>
+          <td>
+            {{ row.origin_sentences[i] if i < row.origin_sentences|length else "" }}
+          </td>
+          <td>
+            <textarea name="sentence_{{ i }}" rows="3" cols="60">{{ row.translation_sentences[i] if i < row.translation_sentences|length else "" }}</textarea>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+      <br>
+      {% if index == total - 1 %}
+        <input type="submit" name="action" value="완료">
+      {% else %}
+        <input type="submit" name="action" value="다음">
+      {% endif %}
+      <input type="submit" name="action" value="저장">
+    </form>
+  </body>
+</html>
