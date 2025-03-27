@@ -4,7 +4,7 @@ import re
 import io
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # 운영환경에서는 안전한 값으로 변경하세요
+app.secret_key = 'your_secret_key'  # 운영환경에서는 안전한 값으로 변경하세요1
 
 # 업로드한 엑셀 데이터를 저장할 전역 변수 (실제 서비스에서는 DB나 세션 관리가 필요함)
 excel_data = []
