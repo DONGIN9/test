@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Resource Dashboard</title>
+<style>
+    body { font-family: Arial, sans-serif; font-size: 12px; margin: 0; padding: 0; }
+    .sidebar { width: 200px; background-color: #f5f5f5; height: 100vh; float: left; padding: 20px 10px; box-sizing: border-box; }
+    .sidebar ul { list-style: none; padding: 0; }
+    .sidebar ul li { margin: 15px 0; font-size: 14px; cursor: pointer; }
+    .sidebar ul li.active { font-weight: bold; }
+    .main { margin-left: 200px; padding: 20px; }
+    .page-section { display: none; }
+    .page-section.active { display: block; }
+    .tab-buttons { margin-top: 10px; }
+    .tab-buttons button { padding: 6px 12px; margin-right: 10px; cursor: pointer; border: 1px solid #ccc; background-color: #f0f0f0; }
+    .tab-buttons button.active { background-color: #ddd; }
+    .search-box { margin-top: 10px; display: flex; align-items: center; }
+    .search-box input[type="text"] { padding: 5px; font-size: 12px; width: 180px; }
+    .search-box button { padding: 6px 10px; margin-left: 5px; }
+    .filter-checkboxes { margin-top: 5px; text-align: left; }
+    .filter-checkboxes label { margin-right: 10px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 15px; }
+    table th, table td { border: 1px solid #ccc; padding: 6px; text-align: center; }
+    .footer { margin-top: 8px; font-size: 11px; }
+    .pagination { text-align: right; margin-top: 5px; }
+    .pagination span { margin: 0 5px; cursor: pointer; }
+  </style>
+<script>
+    function switchView(viewId) {
+      document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(viewId).classList.add('active');
+      document.querySelectorAll('.sidebar li').forEach(li => li.classList.remove('active'));
+      document.getElementById("nav-" + viewId).classList.add('active');
+    }
+    function switchTab(tab, baseId) {
+      document.getElementById(baseId + "-ht").style.display = tab === "HT" ? "table" : "none";
+      document.getElementById(baseId + "-lct").style.display = tab === "LCT" ? "table" : "none";
+      document.getElementById(baseId + "-btnHT").classList.toggle("active", tab === "HT");
+      document.getElementById(baseId + "-btnLCT").classList.toggle("active", tab === "LCT");
+    }
+  </script>
+</head>
+<body>
+<div class="sidebar">
+<ul>
+<li class="active" id="nav-resource" onclick="switchView('resource')">RESOURCE</li>
+<li id="nav-testresult" onclick="switchView('testresult')">TEST RESULT</li>
+<li id="nav-applicants" onclick="switchView('applicants')">APPLICANTS</li>
+<li id="nav-response" onclick="switchView('response')">RESPONSE</li>
+</ul>
+</div>
+<div class="main">
+<!-- RESOURCE -->
+<div class="page-section active" id="resource">
+<h2>RESOURCE</h2><div style="display: flex; flex-direction: column; align-items: flex-end; margin-bottom: 10px;"><div class="search-box" style="margin-bottom: 5px;">
+<input placeholder="Search" type="text"/>
+<button>🔍</button>
+</div><div class="filter-checkboxes" style="text-align: right;">
+<label><input type="checkbox"/> User ID</label>
+<label><input type="checkbox"/> User name</label>
+<label><input type="checkbox"/> E-mail</label>
+<label><input type="checkbox"/> Lang-Pair</label>
+</div></div>
+<div class="tab-buttons">
+<button class="active" id="resource-btnHT" onclick="switchTab('HT', 'resource')">HT</button>
+<button id="resource-btnLCT" onclick="switchTab('LCT', 'resource')">LCT</button>
+</div>
+<table id="resource-ht">
+<thead><tr><th></th><th>User ID</th><th>Lang-Pair</th><th>Name</th><th>E-mail</th><th>BMS</th><th>NAC</th><th>NAC 투입여부</th></tr></thead>
+<tbody><tr><td><input type="checkbox"/></td><td>23000157</td><td>zh-TW → en-US</td><td>Chengxi</td><td>chengxi05@gmail.com</td><td>가입완료</td><td>가입완료</td><td>투입 확정</td></tr></tbody>
+</table>
+<table id="resource-lct" style="display:none;">
+<thead><tr><th></th><th>User ID</th><th>Lang-Pair</th><th>Name</th><th>E-mail</th><th>BMS</th><th>NAC</th><th>NAC 투입여부</th></tr></thead>
+<tbody><tr><td><input type="checkbox"/></td><td>25000177</td><td>en-US → ar-AE</td><td>Nouran</td><td>nouran2233@gmail.com</td><td>미가입</td><td>진행중</td><td>미정</td></tr></tbody>
+</table>
+<div class="footer">Total: 1</div><div class="pagination"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+<!-- TEST RESULT -->
+<div class="page-section" id="testresult">
+<h2>TEST RESULT</h2><div style="display: flex; flex-direction: column; align-items: flex-end; margin-bottom: 10px;"><div class="search-box" style="margin-bottom: 5px;">
+<input placeholder="Search" type="text"/>
+<button>🔍</button>
+</div><div class="filter-checkboxes" style="text-align: right;">
+<label><input type="checkbox"/> Name</label>
+<label><input type="checkbox"/> Lang-Pair</label>
+<label><input type="checkbox"/> Evaluator</label>
+</div></div>
+<div class="tab-buttons">
+<button class="active" id="testresult-btnHT" onclick="switchTab('HT', 'testresult')">HT</button>
+<button id="testresult-btnLCT" onclick="switchTab('LCT', 'testresult')">LCT</button>
+</div>
+<table id="testresult-ht">
+<thead><tr><th></th><th>Lang-Pair</th><th>Name</th><th>Result</th><th>Evaluator</th></tr></thead>
+<tbody><tr><td><input type="checkbox"/></td><td>ko_KR → en_US</td><td>Soyoung</td><td>PASS</td><td>David</td></tr></tbody>
+</table>
+<table id="testresult-lct" style="display:none;">
+<thead><tr><th></th><th>Lang-Pair</th><th>Name</th><th>Result</th><th>Evaluator</th></tr></thead>
+<tbody><tr><td><input type="checkbox"/></td><td>de_DE → fr_FR</td><td>Jane</td><td>FAIL</td><td>Emily</td></tr></tbody>
+</table>
+<div class="footer">Total: 1</div><div class="pagination"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+<!-- APPLICANTS -->
+<div class="page-section" id="applicants">
+<h2>APPLICANTS</h2><div style="display: flex; flex-direction: column; align-items: flex-end; margin-bottom: 10px;"><div class="search-box" style="margin-bottom: 5px;">
+<input placeholder="Search" type="text"/>
+<button>🔍</button>
+</div><div class="filter-checkboxes" style="text-align: right;">
+<label><input type="checkbox"/> User name</label>
+<label><input type="checkbox"/> E-mail</label>
+<label><input type="checkbox"/> Lang-Pair</label>
+</div></div>
+<div class="tab-buttons">
+<button class="active" id="applicants-btnHT" onclick="switchTab('HT', 'applicants')">HT</button>
+<button id="applicants-btnLCT" onclick="switchTab('LCT', 'applicants')">LCT</button>
+</div>
+<button class="test-send-button" style="margin-bottom: 10px; float: right; padding: 6px 12px; background-color: #ddd; border: 1px solid #aaa; cursor: pointer;">Test Send</button><table id="applicants-ht">
+<thead><tr><th></th><th>Lang-Pair</th><th>Name</th><th>E-mail</th><th>Status</th><th>HISTORY</th></tr></thead>
+<tbody><tr><td><input type="checkbox"/></td><td>de → fr</td><td>Charlotte</td><td>charlotte@gmail.com</td><td>Sent</td><td>2025.04.10</td></tr></tbody>
+</table>
+<table id="applicants-lct" style="display:none;">
+<thead><tr><th></th><th>Lang-Pair</th><th>Name</th><th>E-mail</th><th>Status</th><th>HISTORY</th></tr></thead>
+<tbody><tr><td><input type="checkbox"/></td><td>fr → en</td><td>Lucas</td><td>lucas@email.com</td><td>Before Send</td><td></td></tr></tbody>
+</table>
+<div class="footer">Total: 1</div><div class="pagination"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+<!-- RESPONSE -->
+<div class="page-section" id="response">
+<h2>RESPONSE</h2><div style="display: flex; flex-direction: column; align-items: flex-end; margin-bottom: 10px;"><div class="search-box" style="margin-bottom: 5px;">
+<input placeholder="Search" type="text"/>
+<button>🔍</button>
+</div><div class="filter-checkboxes" style="text-align: right;">
+<label><input type="checkbox"/> User name</label>
+<label><input type="checkbox"/> E-mail</label>
+<label><input type="checkbox"/> Lang-Pair</label>
+</div></div>
+<div class="tab-buttons">
+<button class="active" id="response-btnHT" onclick="switchTab('HT', 'response')">HT</button>
+<button id="response-btnLCT" onclick="switchTab('LCT', 'response')">LCT</button>
+</div>
+<table id="response-ht">
+<thead><tr><th></th><th>Lang-Pair</th><th>Name</th><th>E-mail</th><th>Degree / Certificate</th><th>First Language</th><th>Birth Place</th><th>Residence</th><th>유입경로</th></tr></thead>
+<tbody><tr><td><input type="checkbox"/></td><td>zh → en</td><td>Chengxi</td><td>chengxi05@gmail.com</td><td>HSK6</td><td>English</td><td>USA</td><td>Taiwan</td><td>Proz</td></tr></tbody>
+</table>
+<table id="response-lct" style="display:none;">
+<thead><tr><th></th><th>Lang-Pair</th><th>Name</th><th>E-mail</th><th>Degree / Certificate</th><th>First Language</th><th>Birth Place</th><th>Residence</th><th>유입경로</th></tr></thead>
+<tbody><tr><td><input type="checkbox"/></td><td>ko → en</td><td>Soyoung</td><td>soyoung@email.com</td><td>TOPIK</td><td>Korean</td><td>Seoul</td><td>USA</td><td>Referral</td></tr></tbody>
+</table>
+<div class="footer">Total: 1</div><div class="pagination"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+</div>
+</body>
+</html>

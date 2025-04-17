@@ -1,0 +1,107 @@
+<!-- RESOURCE -->
+<div id="resource" class="page-section active">
+    <h2>RESOURCE</h2>
+    <div class="tab-buttons">
+      <button id="resource-btnHT" class="active" onclick="switchTab('HT', 'resource')">HT</button>
+      <button id="resource-btnLCT" onclick="switchTab('LCT', 'resource')">LCT</button>
+    </div>
+    <div class="search-box" style="margin-top: 10px;">
+      <input type="text" placeholder="Search">
+      <button>🔍</button>
+    </div>
+    <div class="filter-checkboxes">
+      <label><input type="checkbox"> User ID</label>
+      <label><input type="checkbox"> User name</label>
+      <label><input type="checkbox"> E-mail</label>
+      <label><input type="checkbox"> Lang-Pair</label>
+    </div>
+    <table id="resource-ht">
+      <thead><tr><th></th><th>User ID</th><th>Lang-Pair</th><th>Name</th><th>E-mail</th><th>BMS</th><th>NAC</th><th>NAC 투입여부</th></tr></thead>
+      <tbody><tr><td><input type="checkbox"></td><td>23000157</td><td>zh-TW → en-US</td><td>Chengxi</td><td>chengxi05@gmail.com</td><td>가입완료</td><td>가입완료</td><td>투입 확정</td></tr></tbody>
+    </table>
+    <table id="resource-lct" style="display:none;">
+      <thead><tr><th></th><th>User ID</th><th>Lang-Pair</th><th>Name</th><th>E-mail</th><th>BMS</th><th>NAC</th><th>NAC 투입여부</th></tr></thead>
+      <tbody><tr><td><input type="checkbox"></td><td>25000177</td><td>en-US → ar-AE</td><td>Nouran</td><td>nouran2233@gmail.com</td><td>미가입</td><td>진행중</td><td>미정</td></tr></tbody>
+    </table>
+  </div>
+  
+  <!-- TEST RESULT -->
+  <div id="testresult" class="page-section">
+    <h2>TEST RESULT</h2>
+    <div class="tab-buttons">
+      <button id="testresult-btnHT" class="active" onclick="switchTab('HT', 'testresult')">HT</button>
+      <button id="testresult-btnLCT" onclick="switchTab('LCT', 'testresult')">LCT</button>
+    </div>
+    <div class="search-box" style="margin-top: 10px;">
+      <input type="text" placeholder="Search">
+      <button>🔍</button>
+    </div>
+    <div class="filter-checkboxes">
+      <label><input type="checkbox"> User ID</label>
+      <label><input type="checkbox"> User name</label>
+      <label><input type="checkbox"> E-mail</label>
+      <label><input type="checkbox"> Lang-Pair</label>
+    </div>
+    <table id="testresult-ht">
+      <thead><tr><th>User ID</th><th>Lang-Pair</th><th>Name</th><th>Result</th><th>Evaluator</th></tr></thead>
+      <tbody><tr><td>10001</td><td>ko_KR → en_US</td><td>Soyoung</td><td>PASS</td><td>David</td></tr></tbody>
+    </table>
+    <table id="testresult-lct" style="display:none;">
+      <thead><tr><th>User ID</th><th>Lang-Pair</th><th>Name</th><th>Result</th><th>Evaluator</th></tr></thead>
+      <tbody><tr><td>10002</td><td>en_US → fr_FR</td><td>Bianca</td><td>FAIL</td><td>Louis</td></tr></tbody>
+    </table>
+  </div>
+  
+  <!-- APPLICANTS -->
+  <div id="applicants" class="page-section">
+    <h2>APPLICANTS</h2>
+    <div class="tab-buttons">
+      <button id="applicants-btnHT" class="active" onclick="switchTab('HT', 'applicants')">HT</button>
+      <button id="applicants-btnLCT" onclick="switchTab('LCT', 'applicants')">LCT</button>
+    </div>
+    <div class="search-box" style="margin-top: 10px;">
+      <input type="text" placeholder="Search">
+      <button>🔍</button>
+    </div>
+    <div class="filter-checkboxes">
+      <label><input type="checkbox"> User name</label>
+      <label><input type="checkbox"> E-mail</label>
+      <label><input type="checkbox"> Lang-Pair</label>
+    </div>
+    <button style="float:right; margin: 10px 0;">Test Send</button>
+    <table id="applicants-ht">
+      <thead><tr><th></th><th>Lang-Pair</th><th>Name</th><th>E-mail</th><th>Status</th><th>HISTORY</th></tr></thead>
+      <tbody><tr><td><input type="checkbox" /></td><td>de → fr</td><td>Charlotte</td><td>charlotte@gmail.com</td><td>Sent</td><td>2025.04.10</td></tr></tbody>
+    </table>
+    <table id="applicants-lct" style="display: none;">
+      <thead><tr><th></th><th>Lang-Pair</th><th>Name</th><th>E-mail</th><th>Status</th><th>HISTORY</th></tr></thead>
+      <tbody><tr><td><input type="checkbox" /></td><td>ko → en</td><td>Soyoung</td><td>soyoung@email.com</td><td>Before Send</td><td></td></tr></tbody>
+    </table>
+  </div>
+  
+  <!-- RESPONSE -->
+  <div id="response" class="page-section">
+    <h2>RESPONSE</h2>
+    <div class="tab-buttons">
+      <button id="response-btnHT" class="active" onclick="switchTab('HT', 'response')">HT</button>
+      <button id="response-btnLCT" onclick="switchTab('LCT', 'response')">LCT</button>
+    </div>
+    <div class="search-box" style="margin-top: 10px;">
+      <input type="text" placeholder="Search">
+      <button>🔍</button>
+    </div>
+    <div class="filter-checkboxes">
+      <label><input type="checkbox"> User name</label>
+      <label><input type="checkbox"> E-mail</label>
+      <label><input type="checkbox"> Lang-Pair</label>
+    </div>
+    <table id="response-ht">
+      <thead><tr><th></th><th>Lang-Pair</th><th>Name</th><th>E-mail</th><th>Degree</th><th>First Lang</th><th>Birth</th><th>Residence</th><th>유입경로</th></tr></thead>
+      <tbody><tr><td><input type="checkbox" /></td><td>zh → en</td><td>Chengxi</td><td>chengxi05@gmail.com</td><td>HSK6</td><td>English</td><td>USA</td><td>Taiwan</td><td>Proz</td></tr></tbody>
+    </table>
+    <table id="response-lct" style="display: none;">
+      <thead><tr><th></th><th>Lang-Pair</th><th>Name</th><th>E-mail</th><th>Degree</th><th>First Lang</th><th>Birth</th><th>Residence</th><th>유입경로</th></tr></thead>
+      <tbody><tr><td><input type="checkbox" /></td><td>ko → en</td><td>Soyoung</td><td>soyoung@email.com</td><td>TOPIK</td><td>Korean</td><td>Korea</td><td>USA</td><td>Referral</td></tr></tbody>
+    </table>
+  </div>
+  

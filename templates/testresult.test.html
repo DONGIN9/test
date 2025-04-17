@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Test Result</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .sidebar {
+      width: 200px;
+      background-color: #f5f5f5;
+      height: 100vh;
+      float: left;
+      padding: 20px 10px;
+      box-sizing: border-box;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin: 15px 0;
+      font-size: 14px;
+    }
+
+    .main {
+      margin-left: 200px;
+      padding: 20px;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-box input[type="text"] {
+      padding: 5px;
+      font-size: 12px;
+      width: 180px;
+    }
+
+    .search-box button {
+      padding: 6px 10px;
+      margin-left: 5px;
+    }
+
+    .filter-checkboxes {
+      margin-top: 5px;
+      text-align: right;
+    }
+
+    .filter-checkboxes label {
+      margin-left: 10px;
+      white-space: nowrap;
+    }
+
+    .tab-buttons {
+      margin-top: 10px;
+    }
+
+    .tab-buttons button {
+      padding: 6px 12px;
+      margin-right: 10px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      background-color: #f0f0f0;
+    }
+
+    .tab-buttons button.active {
+      background-color: #ddd;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    table th, table td {
+      border: 1px solid #ccc;
+      padding: 6px;
+      text-align: center;
+    }
+
+    .footer {
+      margin-top: 8px;
+      font-size: 11px;
+    }
+
+    .pagination {
+      text-align: right;
+      margin-top: 5px;
+    }
+
+    .pagination span {
+      margin: 0 5px;
+      cursor: pointer;
+    }
+  </style>
+
+  <script>
+    function switchTab(tab) {
+      document.getElementById("htTable").style.display = tab === "HT" ? "table" : "none";
+      document.getElementById("lctTable").style.display = tab === "LCT" ? "table" : "none";
+
+      document.getElementById("btnHT").classList.toggle("active", tab === "HT");
+      document.getElementById("btnLCT").classList.toggle("active", tab === "LCT");
+    }
+  </script>
+</head>
+<body>
+
+  <div class="sidebar">
+    <ul>
+      <li>🏠 HOME</li>
+      <li>RESOURCE</li>
+      <li><strong>TEST RESULT</strong></li>
+      <li>APPLICANTS</li>
+      <li>RESPONSE</li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <div class="top-bar">
+      <div>
+        <h2 style="margin-bottom: 0;">TEST RESULT</h2>
+        <div class="tab-buttons">
+          <button id="btnHT" class="active" onclick="switchTab('HT')">HT</button>
+          <button id="btnLCT" onclick="switchTab('LCT')">LCT</button>
+        </div>
+      </div>
+      <div>
+        <div class="search-box">
+          <input type="text" placeholder="Search">
+          <button>🔍</button>
+        </div>
+        <div class="filter-checkboxes">
+          <label><input type="checkbox"> Name</label>
+          <label><input type="checkbox"> Lang-Pair</label>
+          <label><input type="checkbox"> Evaluator</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- HT Table -->
+    <table id="htTable">
+      <thead>
+        <tr>
+          <th><input type="checkbox" /></th>
+          <th>Lang-Pair</th>
+          <th>Name</th>
+          <th>Result</th>
+          <th>Evaluator</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>de_DE → fr_FR</td>
+          <td>Charlotte</td>
+          <td>PASS</td>
+          <td>Benjamin Louis</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>de_DE → en_US</td>
+          <td>Bianca Han</td>
+          <td>FAIL</td>
+          <td>Johana</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- LCT Table (초기에는 숨김) -->
+    <table id="lctTable" style="display: none;">
+      <thead>
+        <tr>
+          <th><input type="checkbox" /></th>
+          <th>Lang-Pair</th>
+          <th>Name</th>
+          <th>Result</th>
+          <th>Evaluator</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>ko_KR → en_US</td>
+          <td>Soyoung</td>
+          <td>PASS</td>
+          <td>David</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="footer">
+      Total: 15
+    </div>
+
+    <div class="pagination">
+      <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+    </div>
+  </div>
+
+</body>
+</html>
